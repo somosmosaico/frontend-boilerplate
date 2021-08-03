@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
+export const areEqual = (a, b) => a === b;
+
 function App() {
+  const [valueA, setValueA] = useState('');
+  const [valueB, setValueB] = useState('');
+  const [equal, setIsEqual] = useState(false);
+
+  const updateEqual = () => {
+    setIsEqual(areEqual(valueA, valueB));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <h1>Identidade de String</h1>
+        <input data-testid="input-a" value={valueA} onChange={(e) => setValueA(e.target.value)} className="AppInput" type="text" placeholder="String 1" />
+        <input data-testid="input-b" value={valueB} onChange={(e) => setValueB(e.target.value)} className="AppInput" type="text" placeholder="String 2" />
+        <p data-testid="output-result">
+          {equal ? <span className="AppResultSuccess">Igual</span> : <span className="AppResultFailure">Diferente</span>}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button data-testid="input-submit" onClick={updateEqual} className="App-link">Validar</button>
     </div>
   );
 }
