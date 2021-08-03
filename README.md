@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+![build and test](https://github.com/somosmosaico/frontend-boilerplate/actions/workflows/node.js.yml/badge.svg)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
