@@ -19,15 +19,15 @@ test('react components', () => {
   render(<App />);
 
   const inputA = screen.getByTestId('input-a');
-  fireEvent.change(inputA, { target:  { value: 'new value' }});
-  expect(inputA).toHaveValue('new value');
+  fireEvent.change(inputA, { target:  { value: 'abc' }});
+  expect(inputA).toHaveValue('abc');
 
   const inputB = screen.getByTestId('input-b');
-  fireEvent.change(inputB, { target:  { value: 'new value' }});
-  expect(inputB).toHaveValue('new value');
+  fireEvent.change(inputB, { target:  { value: 'cba' }});
+  expect(inputB).toHaveValue('cba');
 
   const inputSubmit = screen.getByTestId('input-submit');
   fireEvent.click(inputSubmit);
 
-  expect(screen.getByTestId('output-result')).toHaveTextContent('Igual');
+  expect(screen.getByTestId('output-result')).toHaveTextContent('Diferente');
 });
